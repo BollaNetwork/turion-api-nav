@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase'
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createRouteHandlerClient } from '@/lib/supabase-server'
 import crypto from 'crypto'
 
 // GET - List API keys
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createRouteHandlerClient({ cookies })
+    const supabase = await createRouteHandlerClient()
     const { data: { session } } = await supabase.auth.getSession()
 
     if (!session) {
@@ -35,7 +33,7 @@ export async function GET(request: NextRequest) {
 // POST - Create new API key
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createRouteHandlerClient({ cookies })
+    const supabase = await createRouteHandlerClient()
     const { data: { session } } = await supabase.auth.getSession()
 
     if (!session) {
@@ -92,7 +90,7 @@ export async function POST(request: NextRequest) {
 // DELETE - Delete API key
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createRouteHandlerClient({ cookies })
+    const supabase = await createRouteHandlerClient()
     const { data: { session } } = await supabase.auth.getSession()
 
     if (!session) {

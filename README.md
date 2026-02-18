@@ -1,141 +1,434 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+<p align="center">
+  <img src="https://img.shields.io/badge/Turion-API%20Nav-6366f1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAxOUwyMiAxOUwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" alt="Turion API Nav"/>
+</p>
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+<h1 align="center">🚀 Turion API Nav</h1>
 
-## ✨ Technology Stack
+<p align="center">
+  <strong>Enterprise-Grade Web Scraping API as a Service</strong>
+</p>
 
-This scaffold provides a robust foundation built with:
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#api-usage">API Usage</a> •
+  <a href="#webhook-configuration">Webhook</a>
+</p>
 
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16"/>
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React 19"/>
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3FCF8E?style=flat-square&logo=supabase" alt="Supabase"/>
+  <img src="https://img.shields.io/badge/Stripe-Payments-008CDD?style=flat-square&logo=stripe" alt="Stripe"/>
+  <img src="https://img.shields.io/badge/Playwright-Browser-45ba4b?style=flat-square&logo=playwright" alt="Playwright"/>
+  <img src="https://img.shields.io/badge/Tailwind-CSS%204-06B6D4?style=flat-square&logo=tailwindcss" alt="Tailwind CSS"/>
+</p>
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+---
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
+<p align="center">
+  <strong>Created by <a href="https://bolla.network">Bolla Network</a></strong> 🌐
+</p>
 
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
+---
 
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
+## 📖 About
 
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
+**Turion API Nav** is a modern, production-ready SaaS platform that provides powerful web scraping APIs for developers and businesses. Built with cutting-edge technologies, it offers:
 
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
+- 🔐 **Secure Authentication** via Supabase Auth
+- 💳 **Subscription Management** with Stripe integration
+- 🔑 **API Key Management** for secure API access
+- 📊 **Usage Analytics** and monitoring dashboard
+- ⚡ **High Performance** web scraping with Playwright
 
-## 🎯 Why This Scaffold?
+---
 
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+## ✨ Features
 
-## 🚀 Quick Start
+### Core Features
+| Feature | Description |
+|---------|-------------|
+| 🔐 **User Authentication** | Secure login/signup with email verification via Supabase |
+| 🔑 **API Key Management** | Create, manage, and revoke API keys with secure hashing |
+| 💳 **Subscription Plans** | Free, Starter (£7), Growth (£25), and Scale (£79) tiers |
+| 📊 **Usage Dashboard** | Real-time analytics and usage monitoring |
+| 🔄 **Stripe Integration** | Secure payment processing and subscription management |
+| 🌐 **Web Scraping API** | Powerful browser-based scraping with Playwright |
 
-```bash
-# Install dependencies
-bun install
+### Plan Features
+| Plan | Requests/Month | Rate Limit | Timeout | Price |
+|------|----------------|------------|---------|-------|
+| **Free** | 1,000 | 5/min | 15s | £0 |
+| **Starter** | 10,000 | 10/min | 30s | £7/mo |
+| **Growth** | 50,000 | 30/min | 45s | £25/mo |
+| **Scale** | 200,000 | 60/min | 60s | £79/mo |
 
-# Start development server
-bun run dev
+---
 
-# Build for production
-bun run build
+## 🛠️ Tech Stack
 
-# Start production server
-bun start
+### Frontend
+- **Next.js 16** - React framework with App Router
+- **React 19** - Latest React with concurrent features
+- **TypeScript 5** - Type-safe JavaScript
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **shadcn/ui** - High-quality accessible components
+- **Framer Motion** - Smooth animations
+
+### Backend
+- **Next.js API Routes** - Serverless API endpoints
+- **Supabase** - PostgreSQL database + Auth + Row Level Security
+- **Stripe** - Payment processing and subscriptions
+- **Playwright** - Browser automation for web scraping
+
+### DevOps
+- **Vercel** - Deployment platform
+- **Bun** - Fast JavaScript runtime and package manager
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have:
+
+- **Node.js 18+** or **Bun 1.0+**
+- **Supabase account** - [supabase.com](https://supabase.com)
+- **Stripe account** - [stripe.com](https://stripe.com)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-org/turion-api-nav.git
+   cd turion-api-nav
+   ```
+
+2. **Install dependencies**
+   ```bash
+   # Using bun (recommended)
+   bun install
+   
+   # Or using npm
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Edit `.env.local` with your credentials (see [Environment Variables](#environment-variables) section)
+
+4. **Set up Supabase database**
+   - Go to your Supabase dashboard
+   - Open SQL Editor
+   - Copy and paste the contents of `supabase-schema.sql`
+   - Execute the SQL script
+
+5. **Configure Stripe Webhook** (See [Webhook Configuration](#webhook-configuration))
+
+6. **Run the development server**
+   ```bash
+   bun run dev
+   # or
+   npm run dev
+   ```
+
+7. Open [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL | `https://xxx.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous/public key | `eyJhbGciOiJIUzI1...` |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server-side only) | `eyJhbGciOiJIUzI1...` |
+| `STRIPE_SECRET_KEY` | Stripe secret API key | `sk_live_...` or `sk_test_...` |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe publishable key | `pk_live_...` or `pk_test_...` |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing secret | `whsec_...` |
+| `NEXT_PUBLIC_APP_URL` | Your application URL | `https://www.turion.network` |
+| `NEXTAUTH_URL` | NextAuth URL (same as app URL) | `https://www.turion.network` |
+| `NEXTAUTH_SECRET` | Random string for NextAuth | `your-random-secret` |
+
+### Getting Your Keys
+
+#### Supabase
+1. Go to [supabase.com](https://supabase.com) → Your Project
+2. Navigate to **Settings** → **API**
+3. Copy the `URL`, `anon` key, and `service_role` key
+
+#### Stripe
+1. Go to [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
+2. Copy your **Publishable key** and **Secret key**
+3. For webhook secret, see [Webhook Configuration](#webhook-configuration)
+
+---
+
+## 🔔 Webhook Configuration
+
+Stripe webhooks are **essential** for handling subscription events like payment success, plan upgrades, and cancellations.
+
+### Webhook URL
+
+```
+https://www.turion.network/api/webhooks/stripe
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
+> ⚠️ **Production URL**: Replace `www.turion.network` with your actual domain.
 
-## 🤖 Powered by Z.ai
+### Step-by-Step Setup
 
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+1. **Go to Stripe Dashboard**
+   - Navigate to [Developers → Webhooks](https://dashboard.stripe.com/webhooks)
 
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
+2. **Add Endpoint**
+   - Click **"Add endpoint"**
+   - Enter your webhook URL: `https://your-domain.com/api/webhooks/stripe`
 
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+3. **Select Events**
+   Subscribe to the following events:
+   
+   | Event | Description |
+   |-------|-------------|
+   | `checkout.session.completed` | Customer completed checkout |
+   | `customer.subscription.created` | New subscription created |
+   | `customer.subscription.updated` | Subscription plan changed |
+   | `customer.subscription.deleted` | Subscription cancelled |
+   | `invoice.paid` | Invoice payment successful |
+   | `invoice.payment_failed` | Invoice payment failed |
+
+4. **Get Webhook Secret**
+   - After creating the endpoint, click on it
+   - Click **"Reveal"** under Signing secret
+   - Copy the `whsec_...` value
+   - Add to your `.env.local` as `STRIPE_WEBHOOK_SECRET`
+
+### Testing Webhooks Locally
+
+Use the Stripe CLI for local development:
+
+```bash
+# Install Stripe CLI
+brew install stripe/stripe-cli/stripe
+
+# Login to Stripe
+stripe login
+
+# Forward webhooks to localhost
+stripe listen --forward-to localhost:3000/api/webhooks/stripe
+
+# The CLI will show you a webhook signing secret (whsec_...)
+# Use this for local testing
+```
+
+### Troubleshooting Webhooks
+
+| Issue | Solution |
+|-------|----------|
+| **400 Invalid Signature** | Ensure `STRIPE_WEBHOOK_SECRET` matches the endpoint's signing secret |
+| **Webhook not receiving** | Check that the URL is correct and accessible from the internet |
+| **Events not processing** | Check server logs for errors; ensure database permissions are correct |
+| **Local testing fails** | Make sure to use the `whsec_` from `stripe listen`, not from dashboard |
+
+---
+
+## 🗄️ Database Setup
+
+### Using Supabase SQL Editor
+
+1. Go to your Supabase project dashboard
+2. Navigate to **SQL Editor**
+3. Click **New Query**
+4. Paste the entire contents of `supabase-schema.sql`
+5. Click **Run**
+
+### Schema Overview
+
+The database includes the following tables:
+
+| Table | Purpose |
+|-------|---------|
+| `profiles` | User profile information linked to Supabase Auth |
+| `api_keys` | API keys for authentication with secure hashing |
+| `subscriptions` | User subscription and plan information |
+| `usage_logs` | Detailed API request logs |
+| `monthly_usage` | Aggregated monthly usage statistics |
+
+### Row Level Security (RLS)
+
+All tables have RLS enabled, ensuring users can only access their own data.
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Import your GitHub repository
+   - Configure environment variables (all from `.env.local`)
+
+3. **Add Environment Variables**
+   In Vercel project settings, add all environment variables from your `.env.local`
+
+4. **Deploy**
+   - Vercel will automatically build and deploy
+   - Your site will be available at `your-project.vercel.app`
+
+5. **Update Stripe Webhook**
+   - Update your Stripe webhook URL to your production domain
+   - Update `STRIPE_WEBHOOK_SECRET` if using a new endpoint
+
+### Custom Domain
+
+1. In Vercel, go to **Settings** → **Domains**
+2. Add your custom domain (e.g., `www.turion.network`)
+3. Configure DNS as instructed by Vercel
+4. Update `NEXT_PUBLIC_APP_URL` and `NEXTAUTH_URL` environment variables
+
+---
+
+## 📡 API Usage
+
+### Authentication
+
+All API requests require an API key in the header:
+
+```bash
+curl -X GET "https://www.turion.network/api/scrape?url=https://example.com" \
+  -H "Authorization: Bearer tur_your_api_key_here"
+```
+
+### Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/scrape` | GET/POST | Scrape a webpage |
+| `/api/keys` | GET | List your API keys |
+| `/api/keys` | POST | Create a new API key |
+| `/api/keys` | DELETE | Delete an API key |
+| `/api/usage` | GET | Get usage statistics |
+
+### Example Request
+
+```javascript
+const response = await fetch('https://www.turion.network/api/scrape', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer tur_your_api_key',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    url: 'https://example.com',
+    waitFor: 'networkidle',
+    selector: '.content',
+  }),
+});
+
+const data = await response.json();
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
+turion-api-nav/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/               # API routes
+│   │   │   ├── keys/          # API key management
+│   │   │   ├── stripe/        # Stripe checkout & portal
+│   │   │   ├── webhooks/      # Stripe webhooks
+│   │   │   └── usage/         # Usage statistics
+│   │   ├── auth/              # Authentication pages
+│   │   ├── dashboard/         # User dashboard
+│   │   └── demo/              # Demo page
+│   ├── components/            # React components
+│   │   └── ui/               # shadcn/ui components
+│   └── lib/                   # Utilities and configs
+│       ├── supabase.ts       # Supabase client
+│       ├── supabase-server.ts # Server-side Supabase
+│       └── types.ts          # TypeScript types
+├── prisma/                    # Prisma schema (local dev)
+├── supabase-schema.sql        # Database schema
+├── next.config.ts             # Next.js configuration
+├── vercel.json               # Vercel deployment config
+└── package.json
 ```
-
-## 🎨 Available Features & Components
-
-This scaffold includes a comprehensive set of modern web development tools:
-
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
-
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
-
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
-
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
-
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
-
-## 🤝 Get Started with Z.ai
-
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+## 🧪 Development
+
+### Available Scripts
+
+```bash
+# Development server
+bun run dev
+
+# Production build
+bun run build
+
+# Start production server
+bun start
+
+# Lint code
+bun run lint
+
+# Database commands (Prisma - local only)
+bun run db:push
+bun run db:generate
+bun run db:migrate
+```
+
+---
+
+## 📄 License
+
+This project is proprietary software owned by **Bolla Network**.
+
+---
+
+## 🙏 Credits
+
+<p align="center">
+  <strong>Developed and maintained by</strong><br/>
+  <a href="https://bolla.network"><strong>🌐 Bolla Network</strong></a>
+</p>
+
+<p align="center">
+  <em>Building the future of web automation</em>
+</p>
+
+---
+
+## 📞 Support
+
+For support, please contact:
+- 🌐 Website: [bolla.network](https://bolla.network)
+- 📧 Email: support@bolla.network
+- 🐛 Issues: [GitHub Issues](https://github.com/your-org/turion-api-nav/issues)
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://bolla.network">Bolla Network</a>
+</p>
