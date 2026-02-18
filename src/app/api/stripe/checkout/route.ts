@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
 })
 
-// POST - Create checkout session
+// POST - Create checkout session with dynamic pricing
 export async function POST(request: NextRequest) {
   try {
     const supabase = createRouteHandlerClient({ cookies })
@@ -27,15 +27,16 @@ export async function POST(request: NextRequest) {
 
     const plan = PLANS[planId]
 
-    // Get or create Stripe customer
-    const { data: subscription } = await supabase
-      .from('subscriptions')
+    // Get user's current subscription to check for existing customer
+    const { data: profile } = await supabase
+      .from('profiles')
       .select('stripe_customer_id')
-      .eq('user_id', session.user.id)
+      .eq('id', session.user.id)
       .single()
 
-    let customerId = subscription?.stripe_customer_id
+    let customerId = profile?.stripe_customer_id
 
+    // Create Stripe customer if doesn't exist
     if (!customerId) {
       const customer = await stripe.customers.create({
         email: session.user.email,
@@ -44,40 +45,52 @@ export async function POST(request: NextRequest) {
         },
       })
       customerId = customer.id
+
+      // Update profile with customer ID
+      await supabase
+        .from('profiles')
+        .update({ stripe_customer_id: customerId })
+        .eq('id', session.user.id)
     }
 
-    // Get price ID from database or env
-    const priceIdMap: Record<string, string> = {
-      starter: process.env.STRIPE_STARTER_PRICE_ID!,
-      growth: process.env.STRIPE_GROWTH_PRICE_ID!,
-      scale: process.env.STRIPE_SCALE_PRICE_ID!,
-    }
-
-    const priceId = priceIdMap[planId]
-
-    if (!priceId) {
-      return NextResponse.json({ 
-        error: 'Plan not configured. Please contact support.' 
-      }, { status: 400 })
-    }
-
-    // Create checkout session
+    // Create checkout session with DYNAMIC pricing
+    // Price is defined in PLANS config - change there and it updates everywhere
     const checkoutSession = await stripe.checkout.sessions.create({
       customer: customerId,
       mode: 'subscription',
       payment_method_types: ['card'],
       line_items: [
         {
-          price: priceId,
+          price_data: {
+            currency: 'gbp',
+            unit_amount: plan.price * 100, // Convert to pence (e.g., £7 = 700p)
+            product_data: {
+              name: `Turion ${plan.name}`,
+              description: `${plan.requestsIncluded.toLocaleString()} requests/month • ${plan.requestsPerMinute} req/min`,
+              metadata: {
+                plan_id: planId,
+              },
+            },
+            recurring: {
+              interval: 'month',
+            },
+          },
           quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXT_PUBLIC_URL}/dashboard?success=true`,
-      cancel_url: `${process.env.NEXT_PUBLIC_URL}/dashboard?canceled=true`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?success=true`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/pricing?canceled=true`,
       client_reference_id: session.user.id,
       metadata: {
         plan_id: planId,
         user_id: session.user.id,
+        price_gbp: plan.price.toString(),
+      },
+      subscription_data: {
+        metadata: {
+          plan_id: planId,
+          user_id: session.user.id,
+        },
       },
     })
 
