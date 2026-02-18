@@ -1,0 +1,130 @@
+# =============================================================================
+# Browser API Service - Docker Compose Configuration
+# =============================================================================
+# Optimized for 8GB RAM VPS with resource constraints
+# =============================================================================
+
+version: "3.9"
+
+services:
+  # ===========================================================================
+  # Browser API Service
+  # ===========================================================================
+  browser-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    
+    container_name: browser-api
+    
+    # Restart policy
+    restart: always
+    
+    # Port mapping (internal:external)
+    ports:
+      - "8000:8000"
+    
+    # Environment variables
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+      # Browser settings
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      # Optional: Proxy settings (uncomment if needed)
+      # - DEFAULT_PROXY_SERVER=http://proxy.example.com:8080
+    
+    # Resource limits - CRITICAL for 8GB RAM VPS
+    deploy:
+      resources:
+        limits:
+          # Hard limit: 4GB RAM (leaves 4GB for OS and other services)
+          memory: 4G
+          # CPU limit: 2 vCPUs
+          cpus: "2.0"
+        reservations:
+          # Minimum reserved resources
+          memory: 1G
+          cpus: "0.5"
+    
+    # Runtime resource limits (alternative method)
+    mem_limit: 4g
+    memswap_limit: 4g
+    cpus: 2.0
+    
+    # Security settings
+    security_opt:
+      - no-new-privileges:true
+    
+    # Read-only root filesystem for security (except writable paths)
+    read_only: false  # Set to true if you map tmpfs for /tmp
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    
+    # Networks
+    networks:
+      - browser-network
+    
+    # Optional: Mount for persistent data
+    # volumes:
+    #   - ./data:/app/data:ro
+
+  # ===========================================================================
+  # Nginx Reverse Proxy (Optional - for SSL termination)
+  # ===========================================================================
+  nginx:
+    image: nginx:alpine
+    container_name: browser-nginx
+    
+    restart: always
+    
+    ports:
+      - "80:80"
+      - "443:443"
+    
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    
+    depends_on:
+      browser-api:
+        condition: service_healthy
+    
+    networks:
+      - browser-network
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  browser-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# =============================================================================
+# Volumes (if needed)
+# =============================================================================
+# volumes:
+#   browser-data:
+#     driver: local
