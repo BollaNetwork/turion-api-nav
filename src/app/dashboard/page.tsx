@@ -16,7 +16,7 @@ import {
   Trash2, 
   Plus, 
   Key, 
-  UsageIcon, 
+  Activity, 
   CreditCard,
   Loader2,
   ExternalLink,
@@ -258,7 +258,7 @@ export default function DashboardPage() {
         <Tabs defaultValue="keys" className="space-y-6">
           <TabsList>
             <TabsTrigger value="keys"><Key className="w-4 h-4 mr-2" />API Keys</TabsTrigger>
-            <TabsTrigger value="usage"><UsageIcon className="w-4 h-4 mr-2" />Usage</TabsTrigger>
+            <TabsTrigger value="usage"><Activity className="w-4 h-4 mr-2" />Usage</TabsTrigger>
             <TabsTrigger value="billing"><CreditCard className="w-4 h-4 mr-2" />Billing</TabsTrigger>
           </TabsList>
 
